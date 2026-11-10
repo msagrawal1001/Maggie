@@ -1,8 +1,17 @@
-# Maggie
-A ai assistant that sits on your shoulder
-Maggie can talk to you , answer to your quesion. 
-It is controlled by Esp32 S3 and Xiaozhi is flashed into it.
+Maggie
 
-Xiaozhi is an open-source AI chatbot framework built for ESP32 devices. It sends your voice to cloud-based language models instead of running them on the chip. The ESP32 records your voice over I2S and sends it over Wi-Fi to the Xiaozhi cloud, where the heavy work (speech-to-text, the AI model, text-to-speech) happens.
+what actually happens in those few seconds?
+it listens: the mics pick up your voice and turn the audio into data.
+it wakes up: the esp32-s3 catches the wake word (or a button press), so it knows you're talking to it and not just someone nearby.
+off to the cloud: the chip is too small to run heavy ai locally, so it shoots your recording over wi-fi to the xiaozhi servers.
+the brain does its thing: the servers do the heavy lifting—running stt (speech-to-text), pinging the ai model for a response, and converting that answer back into tts audio.
+it talks back: the hardware receives the audio stream, the amp boosts it, and the speaker plays it right next to your ear.
+so basically, the hardware is just a mic, a speaker, and a wi-fi link packed into a sick enclosure. all the actual intelligence lives in the cloud.
 
-Major Components - ESP32-S3, two MEMS mics, a MAX98357A amp, a Li-ion charger with USB-C
+
+what my design actually adds ?
+on its own, the base software is just a talking box. my project turns it into a physical wearable companion on your shoulder. here's what i am designing and building from scratch:
+the aesthetics: character design, overall shape, and how the eyes look.
+kinematics: how it physically moves (turning head, eye expressions).
+the mount: how it actually attaches to you with magnets ( Maggie,s base has a magnet and will design a shoulder stand which would be magnetic as well so it stays comfortable.
+vibe & expressions: syncing leds or a small display to its current state (listening, thinking, speaking) so it feels alive.
